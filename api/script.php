@@ -12,12 +12,15 @@ if($new_task){
     //trasformo new task in un oggetto
     $new_task = [
         'text' => $new_task,
-        'done' => false
+        'done' => false,
     ];
     //pusho il nuovo task nell'array
     $tasks[]= $new_task;
+
+    //Riconverto in json
+    $tasks =  json_encode($tasks);
     //Sovrascrivo il file con l'array aggiornato
-    file_put_contents($json_string,$tasks);
+    file_put_contents('dati.json',$tasks);
 } 
 
 

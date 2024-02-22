@@ -33,6 +33,10 @@
                     <ul class="list-group list-group-flush">
                         <li v-for="task in tasks" class="list-group-item">{{task.text}}</li>
                     </ul>
+                    <form action="" @submit.prevent="addTask">
+                        <input type="text" placeholder="Inserisci elemento" v-model.trim="newTask">
+
+                    </form>
                 </div>
             </main>
         </div>
