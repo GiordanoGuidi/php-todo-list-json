@@ -1,11 +1,28 @@
 <?php 
 //RECUPERO L'ARRAY DAL FILE DATI.JSON
 $json_string = file_get_contents('dati.json');
+
 //CONVERTO LA STRINGA JSON IN ARRAY ASSOCIATIVO
 $tasks = json_decode($json_string , true);
-//ELABORAZIONI SU $TASKS
 
-//CONVERTO L'ARRAY ASSOCIATIVO IN STRINGA JSON
+//ELABORAZIONI SU $TASKS
+$new_task = $_POST['task'] ?? '';
+
+if($new_task){
+    //trasformo new task in un oggetto
+    $new_task = [
+        'text' => $new_task,
+        'done' => false
+    ];
+    //pusho il nuovo task nell'array
+    $tasks[]= $new_task;
+    //Sovrascrivo il file con l'array aggiornato
+    file_put_contents($json_string,$tasks);
+} 
+
+
+// dico che voglio rispondere in linguaggio json
 header('Content-Type: application/json');
+// stampom riconvertendo in json
 echo json_encode($tasks);
 ?>
