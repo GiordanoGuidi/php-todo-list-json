@@ -8,9 +8,11 @@ const app = createApp({
     }),
     methods: {
         addTask() {
+            console.log('ciao')
             const data = { task: this.newTask }
             const config = { headers: { 'Content-type': 'multipart/form-data' } }
             axios.post(endpoint, data, config).then(res => {
+                console.log(res.data)
                 this.tasks = res.data;
                 this.newTask = '';
             })

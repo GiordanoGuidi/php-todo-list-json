@@ -18,9 +18,9 @@ if($new_task){
     $tasks[]= $new_task;
 
     //Riconverto in json
-    $tasks =  json_encode($tasks);
+    $tasks_mod =  json_encode($tasks);
     //Sovrascrivo il file con l'array aggiornato
-    file_put_contents('dati.json',$tasks);
+    file_put_contents('dati.json',$tasks_mod);
 } 
 
 
