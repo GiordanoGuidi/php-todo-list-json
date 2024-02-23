@@ -33,9 +33,9 @@
                     <ul class="list-group list-group-flush">
                         <li v-for="task in tasks" class="list-group-item">{{task.text}}</li>
                     </ul>
-                    <form action="" @submit.prevent="addTask">
+                    <form @submit.prevent="addTask" class="text-center mt-3 mb-3">
                         <input type="text" placeholder="Inserisci elemento" v-model.trim="newTask">
-
+                        <button type="submit">Inserisci</button>
                     </form>
                 </div>
             </main>
